@@ -6,7 +6,13 @@ A simulation study of how **load-balancing policy** and **data-center provisioni
 
 *Course: COP 6819 Advanced Internet Systems, Florida Atlantic University*
 
-![Summary of all six runs](images/slides/slide-12.png)
+## How I did it
+
+![How the study was run: model the request path, run six one-variable experiments, compare the results](images/how-the-study-was-run.svg)
+
+1. **Modeled the request path** in CloudAnalyst: user bases in different regions send requests over the internet, a service broker routes each request to a data center, and that data center's load balancer assigns it to a VM.
+2. **Ran six experiments, changing one thing at a time:** the load-balancing policy, the number of VMs per data center, or the request size.
+3. **Measured and compared** average and maximum response time, response time per region, data-center processing time, and cost split into VM cost and data-transfer cost.
 
 ## Key findings
 
@@ -41,6 +47,8 @@ A simulation study of how **load-balancing policy** and **data-center provisioni
 
 ## Results
 
+![Summary of all six runs](images/slides/slide-12.png)
+
 | Scenario | Avg response (ms) | Max response (ms) | DC processing avg (ms) | Total cost |
 |---|---:|---:|---:|---:|
 | Round Robin | **92.59** | 400.88 | 0.84 | $161.36 |
@@ -63,10 +71,12 @@ A simulation study of how **load-balancing policy** and **data-center provisioni
 
 ```
 docs/
-  CloudAnalyst-Slides.pdf    14-slide results presentation
-  CloudAnalyst-Report.pdf    Full report: per-scenario setup, CloudAnalyst output, analysis
-images/slides/               PNG export of every slide
-source/                      Original PowerPoint (.pptx) and Pages (.pages) files
+  CloudAnalyst-Slides.pdf           14-slide results presentation
+  CloudAnalyst-Report.pdf           Full report: per-scenario setup, CloudAnalyst output, analysis
+images/
+  how-the-study-was-run.svg         Diagram of the study's method
+  slides/                           PNG export of every slide
+source/                             Original PowerPoint (.pptx) and Pages (.pages) files
 ```
 
 ## Skills demonstrated
